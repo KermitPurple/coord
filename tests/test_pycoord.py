@@ -34,6 +34,10 @@ class TestCoord(unittest.TestCase):
         self.assertEqual(Coord(0.01, 4.99).almost_eq((0, 5), 1), True)
         self.assertEqual(Coord(0.01, 4.99).almost_eq((0, 5), 3), False)
 
+    def test_iter(self):
+        self.assertEqual(list(Coord(1, 2)), [1, 2])
+        self.assertNotEqual(list(Coord(2, 2)), [1, 2])
+
     def test_repr(self):
         self.assertEqual(repr(Coord(0, 0)), 'Coord(x=0.000, y=0.000)')
 
