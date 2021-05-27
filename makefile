@@ -12,3 +12,6 @@ all: dist
 
 clean:
 	rm -rf dist build
+
+test:
+	py -m unittest
