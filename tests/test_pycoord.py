@@ -29,6 +29,11 @@ class TestCoord(unittest.TestCase):
     def test_dist(self):
         self.assertAlmostEqual(Coord(2, 2).dist((4, 4)), math.sqrt(8))
 
+    def test_almost_eq(self):
+        self.assertEqual(Coord(0.00000000001, 0.999999999999).almost_eq((0, 1)), True)
+        self.assertEqual(Coord(0.01, 4.99).almost_eq((0, 5), 1), True)
+        self.assertEqual(Coord(0.01, 4.99).almost_eq((0, 5), 3), False)
+
     def test_repr(self):
         self.assertEqual(repr(Coord(0, 0)), 'Coord(x=0.000, y=0.000)')
 
@@ -40,6 +45,7 @@ class TestCoord(unittest.TestCase):
 
     def test_round(self):
         self.assertEqual(round(Coord(5.55555, 12.00000000000001), 2), Coord(5.56, 12))
+        self.assertEqual(round(Coord(5.55555, 12.00000000000001), 0), Coord(6, 12))
 
     def test_floor(self):
         self.assertEqual(math.floor(Coord(2.5, 3.5)), Coord(2, 3))

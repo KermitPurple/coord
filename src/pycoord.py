@@ -87,6 +87,11 @@ class Coord:
     distance = distance_between
     dist = distance
 
+    @convert_tuple
+    def almost_equal(self, c, precision: int = 8) -> bool:
+        r = abs(round(self - c, precision))
+        return r.x == r.y == 0
+    almost_eq = almost_equal
 
     def __iter__(self):
         yield self.x
@@ -101,7 +106,7 @@ class Coord:
     def __abs__(self) -> 'Coord':
         return Coord(abs(self.x), abs(self.y))
 
-    def __round__(self, places) -> 'Coord':
+    def __round__(self, places: int = 8) -> 'Coord':
         return Coord(round(self.x, places), round(self.y, places))
 
     def __floor__(self) -> 'Coord':
