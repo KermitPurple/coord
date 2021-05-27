@@ -26,6 +26,9 @@ class TestCoord(unittest.TestCase):
     def test_dot_prod(self):
         self.assertEqual(Coord(1, 2).dot(Coord(3, 4)), 11)
 
+    def test_dist(self):
+        self.assertAlmostEqual(Coord(2, 2).dist((4, 4)), math.sqrt(8))
+
     def test_repr(self):
         self.assertEqual(repr(Coord(0, 0)), 'Coord(x=0.000, y=0.000)')
 

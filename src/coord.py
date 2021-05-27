@@ -80,6 +80,14 @@ class Coord:
     dot_prod = dot_product
     dot = dot_prod
 
+    @convert_tuple
+    def distance_between(self, c) -> float:
+        """Find the distance between two Coords"""
+        return math.sqrt((c.x - self.x) ** 2 + (c.y - self.y) ** 2)
+    distance = distance_between
+    dist = distance
+
+
     def __iter__(self):
         yield self.x
         yield self.y
