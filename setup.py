@@ -5,7 +5,7 @@ with open('README.md', 'r') as f:
 
 setup(
     name="pycoord",
-    version='0.0.2',
+    version='0.0.3',
     author="KermitPurple (Shane McDonough)",
     description='Store and manipulate cartesian coordinates easier',
     long_description_content_type="text/markdown",
