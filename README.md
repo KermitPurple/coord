@@ -1,4 +1,4 @@
-# Coord
+# PyCoord
 
 ## A package for 2D Cartesian Coordinates
 
